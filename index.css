@@ -14,8 +14,20 @@ h1 {
     font-style: italic;
 }
 
-#buttonStartGame {
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
     color: #016f32;
     width: 150px;
     background-color: goldenrod;
+    padding: 5px 0;
+    font-weight: 700;
+    border: none;
+    border-radius: 2px;
+    margin: 5px 0;
 }
