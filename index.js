@@ -27,3 +27,8 @@ function checkBlackJack ()
         isAlive = false
     }
 }
+
+function startGame() 
+{
+    console.log(1)
+}
