@@ -8,8 +8,22 @@ let cardsP = document.getElementById("cards-el")
 let sumP = document.getElementById("sum-el")
 let messageP = document.getElementById("message-el")
 let newCardButton = document.getElementById("buttonNewCard")
+let playerP = document.getElementById("player-el")
 let message = ""
 let cardsMessage = ""
+
+let player = {
+    name: "",
+    chips: 0
+}
+
+function initialization (playerName)
+{
+    player.name = playerName
+    player.chips = 100
+
+    playerP.textContent = player.name + ": " + player.chips
+}
 
 function generateCard ()
 {
@@ -64,6 +78,7 @@ function checkBlackJack ()
         message = "You've got Blackjack!"
         hasBlackJack = true
         disableAddCardButton(true)
+        player.chips += 10
     }
 
     else
@@ -71,6 +86,7 @@ function checkBlackJack ()
         message = "You're out of the game!"
         isAlive = false
         disableAddCardButton(true)
+        player.chips -= 10
     }
 }
 
@@ -79,6 +95,7 @@ function updateUI ()
     messageP.textContent = message
     cardsP.textContent = "Cards: " + cardsMessage
     sumP.textContent = "Sum: " + sum
+    playerP.textContent = player.name + ": " + player.chips
 }
 
 function updateGame ()
@@ -94,3 +111,5 @@ function startGame()
     updateGame ()
     disableAddCardButton(false)    
 }
+
+initialization("Jose")
